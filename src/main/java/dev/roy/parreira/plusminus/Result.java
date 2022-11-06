@@ -6,11 +6,11 @@ import java.util.List;
 
 @Getter
 public class Result {
+  
   public static final String NULL_RATE = "0.000000";
   private String positivesRate;
   private String negativesRate;
   private String zeroesRate;
-
 
   public void plusMinus(List<Integer> integersList) {
     positivesRate = NULL_RATE;
