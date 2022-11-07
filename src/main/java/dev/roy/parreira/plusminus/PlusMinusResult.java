@@ -5,8 +5,8 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class Result {
-  
+public class PlusMinusResult {
+
   public static final String NULL_RATE = "0.000000";
   private String positivesRate;
   private String negativesRate;
