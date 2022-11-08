@@ -26,14 +26,16 @@ public class MinMaxSumResult {
       for (Integer integer : integerList) {
 
         // Ensuring element value constraint
+        // TODO: Include Unit test for this
         if ((integer < MINIMUM_ALLOWED_VALUE) || (integer > MAXIMUM_ALLOWED_VALUE)) {
           throw new InputMismatchException("The elements of the list must be between 1 and 10^9");
         }
 
-        // Needs to sort first
         sumOfElements += integer;
+
       }
 
+      // TODO: The list must be sorted for this to work
       minimumSum = sumOfElements - integerList.get(lastElementIndex);
       maximumSum = sumOfElements - integerList.get(0);
     }

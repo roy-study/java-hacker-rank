@@ -1,11 +1,12 @@
 package dev.roy.parreira.minmaxsum;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MinMaxSumResultTest {
   /**
@@ -28,8 +29,8 @@ class MinMaxSumResultTest {
     minMaxSumResult.calculateMinMaxSum(integerList);
 
     // Assert
-    Assertions.assertEquals(expectedMinimumSum, minMaxSumResult.getMinimumSum());
-    Assertions.assertEquals(expectedMaximumSum, minMaxSumResult.getMaximumSum());
+    assertEquals(expectedMinimumSum, minMaxSumResult.getMinimumSum());
+    assertEquals(expectedMaximumSum, minMaxSumResult.getMaximumSum());
   }
 
   @Test
@@ -45,8 +46,8 @@ class MinMaxSumResultTest {
     minMaxSumResult.calculateMinMaxSum(integerList);
 
     // Assert
-    Assertions.assertEquals(expectedMinimumSum, minMaxSumResult.getMinimumSum());
-    Assertions.assertEquals(expectedMaximumSum, minMaxSumResult.getMaximumSum());
+    assertEquals(expectedMinimumSum, minMaxSumResult.getMinimumSum());
+    assertEquals(expectedMaximumSum, minMaxSumResult.getMaximumSum());
   }
 
   @Test
@@ -62,7 +63,7 @@ class MinMaxSumResultTest {
     minMaxSumResult.calculateMinMaxSum(integerList);
 
     // Assert
-    Assertions.assertEquals(expectedMinimumSum, minMaxSumResult.getMinimumSum());
-    Assertions.assertEquals(expectedMaximumSum, minMaxSumResult.getMaximumSum());
+    assertEquals(expectedMinimumSum, minMaxSumResult.getMinimumSum());
+    assertEquals(expectedMaximumSum, minMaxSumResult.getMaximumSum());
   }
 }
