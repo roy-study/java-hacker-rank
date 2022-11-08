@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class PlusMinusResultTest {
 
   PlusMinusResult plusMinusResult = new PlusMinusResult();
@@ -19,10 +21,10 @@ class PlusMinusResultTest {
     // Act
     plusMinusResult.plusMinus(integerList);
 
-    // Expect
-    Assertions.assertEquals("0.400000", plusMinusResult.getPositivesRate());
-    Assertions.assertEquals("0.400000", plusMinusResult.getNegativesRate());
-    Assertions.assertEquals("0.200000", plusMinusResult.getZeroesRate());
+    // Assert
+   assertEquals("0.400000", plusMinusResult.getPositivesRate());
+    assertEquals("0.400000", plusMinusResult.getNegativesRate());
+    assertEquals("0.200000", plusMinusResult.getZeroesRate());
   }
 
   @Test
@@ -35,10 +37,10 @@ class PlusMinusResultTest {
     // Act
     plusMinusResult.plusMinus(integerList);
 
-    // Expect
-    Assertions.assertEquals("0.437500", plusMinusResult.getPositivesRate());
-    Assertions.assertEquals("0.312500", plusMinusResult.getNegativesRate());
-    Assertions.assertEquals("0.250000", plusMinusResult.getZeroesRate());
+    // Assert
+    assertEquals("0.437500", plusMinusResult.getPositivesRate());
+    assertEquals("0.312500", plusMinusResult.getNegativesRate());
+    assertEquals("0.250000", plusMinusResult.getZeroesRate());
   }
 
   @Test
@@ -50,10 +52,10 @@ class PlusMinusResultTest {
     // Act
     plusMinusResult.plusMinus(integerList);
 
-    // Expect
-    Assertions.assertEquals("1.000000", plusMinusResult.getPositivesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getNegativesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getZeroesRate());
+    // Assert
+    assertEquals("1.000000", plusMinusResult.getPositivesRate());
+    assertEquals("0.000000", plusMinusResult.getNegativesRate());
+    assertEquals("0.000000", plusMinusResult.getZeroesRate());
   }
 
   @Test
@@ -65,10 +67,10 @@ class PlusMinusResultTest {
     // Act
     plusMinusResult.plusMinus(integerList);
 
-    // Expect
-    Assertions.assertEquals("0.000000", plusMinusResult.getPositivesRate());
-    Assertions.assertEquals("1.000000", plusMinusResult.getNegativesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getZeroesRate());
+    // Assert
+    assertEquals("0.000000", plusMinusResult.getPositivesRate());
+    assertEquals("1.000000", plusMinusResult.getNegativesRate());
+    assertEquals("0.000000", plusMinusResult.getZeroesRate());
   }
 
   @Test
@@ -80,10 +82,10 @@ class PlusMinusResultTest {
     // Act
     plusMinusResult.plusMinus(integerList);
 
-    // Expect
-    Assertions.assertEquals("0.000000", plusMinusResult.getPositivesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getNegativesRate());
-    Assertions.assertEquals("1.000000", plusMinusResult.getZeroesRate());
+    // Assert
+    assertEquals("0.000000", plusMinusResult.getPositivesRate());
+    assertEquals("0.000000", plusMinusResult.getNegativesRate());
+    assertEquals("1.000000", plusMinusResult.getZeroesRate());
   }
 
   @Test
@@ -93,10 +95,10 @@ class PlusMinusResultTest {
     // Act
     plusMinusResult.plusMinus(null);
 
-    // Expect
-    Assertions.assertEquals("0.000000", plusMinusResult.getPositivesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getNegativesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getZeroesRate());
+    // Assert
+    assertEquals("0.000000", plusMinusResult.getPositivesRate());
+    assertEquals("0.000000", plusMinusResult.getNegativesRate());
+    assertEquals("0.000000", plusMinusResult.getZeroesRate());
   }
 
   @Test
@@ -108,9 +110,9 @@ class PlusMinusResultTest {
     // Act
     plusMinusResult.plusMinus(integerList);
 
-    // Expect
-    Assertions.assertEquals("0.000000", plusMinusResult.getPositivesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getNegativesRate());
-    Assertions.assertEquals("0.000000", plusMinusResult.getZeroesRate());
+    // Assert
+    assertEquals("0.000000", plusMinusResult.getPositivesRate());
+    assertEquals("0.000000", plusMinusResult.getNegativesRate());
+    assertEquals("0.000000", plusMinusResult.getZeroesRate());
   }
 }
