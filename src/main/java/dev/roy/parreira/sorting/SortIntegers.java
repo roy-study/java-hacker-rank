@@ -27,27 +27,35 @@ public class SortIntegers {
   public static void usingCombSort(List<Integer> list) {
 
     int gap = list.size() - 1;
-    int swapsCounter;
+    boolean thereWasSwap;
 
     do {
 
-      swapsCounter = 0;
+      thereWasSwap = false;
 
       for (int j = 0; j < (list.size() - gap); j++) {
 
         if (list.get(j) > list.get((j + gap))) {
           swapIntegers(list, (j + gap), j);
-          swapsCounter++;
+          thereWasSwap = true;
         }
       }
 
       gap = (int) Math.max((gap / COMB_SORT_GAP_RATE), COMB_SORT_MINIMUM_ALLOWED_GAP);
 
-    } while ((gap > COMB_SORT_MINIMUM_ALLOWED_GAP) || (swapsCounter != 0));
+    } while ((gap != COMB_SORT_MINIMUM_ALLOWED_GAP) || (thereWasSwap));
   }
 
   public static void usingExchangeSort(List<Integer> list) {
-    // TODO: Implement me
+    for (int i = 0; i < (list.size() - 1); i++) {
+
+      for (int j = (i + 1); j < list.size(); j++) {
+
+        if (list.get(j) < list.get(i)) {
+          swapIntegers(list, i, j);
+        }
+      }
+    }
   }
 
   public static void usingInsertionSort(List<Integer> list) {

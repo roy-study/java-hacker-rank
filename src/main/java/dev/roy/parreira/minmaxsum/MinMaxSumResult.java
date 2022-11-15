@@ -1,44 +1,47 @@
 package dev.roy.parreira.minmaxsum;
 
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.util.InputMismatchException;
 import java.util.List;
 
+// Suppressing System.out to keep code compatibility with Hacker Rank
+// The results asking for print, doesn't support loggers
+@SuppressWarnings("squid:S106")
 @Getter
 public class MinMaxSumResult {
 
-  private static final long MINIMUM_ALLOWED_VALUE = 1L;
-  private static final long MAXIMUM_ALLOWED_VALUE = (long) Math.pow(10, 9);
+  private static final int MINIMUM_ALLOWED_VALUE = 1;
+  private static final int MAXIMUM_ALLOWED_VALUE = 1_000_000_000;
   private long minimumSum;
   private long maximumSum;
 
-  public void calculateMinMaxSum(List<Integer> integerList) {
+  public void calculateMinMaxSum(@NonNull List<Integer> integerList) {
+
+    if (integerList.isEmpty()) {
+      throw new InputMismatchException("The list must not be empty");
+    }
 
     long sumOfElements = 0L;
     minimumSum = 0L;
     maximumSum = 0L;
 
-    if ((integerList != null) && (!integerList.isEmpty())) {
+    final int lastElementIndex = integerList.size() - 1;
 
-      final int lastElementIndex = integerList.size() - 1;
+    for (Integer integer : integerList) {
 
-      for (Integer integer : integerList) {
-
-        // Ensuring element value constraint
-        // TODO: Include Unit test for this
-        if ((integer < MINIMUM_ALLOWED_VALUE) || (integer > MAXIMUM_ALLOWED_VALUE)) {
-          throw new InputMismatchException("The elements of the list must be between 1 and 10^9");
-        }
-
-        sumOfElements += integer;
-
+      // Ensuring element value constraint
+      if ((integer < MINIMUM_ALLOWED_VALUE) || (integer > MAXIMUM_ALLOWED_VALUE)) {
+        throw new InputMismatchException("The elements of the list must be between 1 and 10^9");
       }
 
-      // TODO: The list must be sorted for this to work
-      minimumSum = sumOfElements - integerList.get(lastElementIndex);
-      maximumSum = sumOfElements - integerList.get(0);
+      sumOfElements += integer;
     }
+
+    // TODO: The list must be sorted for this to work
+    minimumSum = sumOfElements - integerList.get(lastElementIndex);
+    maximumSum = sumOfElements - integerList.get(0);
 
     System.out.printf("%d %d", minimumSum, maximumSum);
   }

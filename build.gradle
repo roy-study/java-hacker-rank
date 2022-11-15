@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id "org.sonarqube" version "3.4.0.2513"
+    id 'jacoco'
 }
 
 group = 'dev.roy.parreira'
@@ -21,17 +23,55 @@ dependencies {
     // JUNIT
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.0'
 
     // GUAVA
     implementation 'com.google.guava:guava:31.1-jre'
 }
 
 test {
+
+    useJUnitPlatform()
+
     testLogging {
         events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
     }
+
+    finalizedBy jacocoTestReport
+    finalizedBy jacocoTestCoverageVerification
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+//                TODO: After implementing all the sort algorithms return to 100% coverage
+//                minimum = 1.0
+                minimum = 0.98
+            }
+        }
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+
+    dependsOn test
+}
+
+tasks.named('sonarqube').configure {
+    dependsOn jacocoTestReport
+    dependsOn jacocoTestCoverageVerification
+}
+
+sonarqube {
+    properties {
+        // Assuming sonar ins running on localhost:9000
+        // and you have a token configured and its value is in a environment variable
+        property 'sonar.login', "${System.env.SONARQUBE_TOKEN}"
+    }
 }

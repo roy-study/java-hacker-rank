@@ -27,10 +27,10 @@ class SortIntegersTest {
 
     // Act
     SortIntegers.usingBubbleSort(integerList);
+    System.out.println(integerList);
 
     // Assert
     assertTrue(Ordering.natural().isOrdered(integerList));
-    System.out.println(integerList);
   }
 
   @Test
@@ -39,12 +39,29 @@ class SortIntegersTest {
 
     // Act
     SortIntegers.usingCombSort(integerList);
+    System.out.println(integerList);
 
     // Assert
     assertTrue(Ordering.natural().isOrdered(integerList));
-    System.out.println(integerList);
   }
 
+  @Test
+  @DisplayName("Should successfully sort a list using exchange sort algorithm")
+  void shouldSortUsingExchangeSort() {
+
+    // Act
+    SortIntegers.usingExchangeSort(integerList);
+    System.out.println(integerList);
+
+    // Assert
+    assertTrue(Ordering.natural().isOrdered(integerList));
+  }
+
+  /**
+   * Generates a random integers list with size (0 < x < 50) and elements value (-99 < y < 99)
+   *
+   * @return random integer list
+   */
   private List<Integer> getRandomIntegerList() {
 
     List<Integer> integers = new ArrayList<>();

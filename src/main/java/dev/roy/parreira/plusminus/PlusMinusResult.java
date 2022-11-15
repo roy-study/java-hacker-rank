@@ -4,6 +4,9 @@ import lombok.Getter;
 
 import java.util.List;
 
+// Suppressing System.out to keep code compatibility with Hacker Rank
+// The results asking for print, doesn't support loggers
+@SuppressWarnings("squid:S106")
 @Getter
 public class PlusMinusResult {
 
