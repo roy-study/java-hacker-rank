@@ -8,9 +8,6 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class SortIntegers {
 
-  private static final double COMB_SORT_GAP_RATE = 1.3;
-  private static final int COMB_SORT_MINIMUM_ALLOWED_GAP = 1;
-
   public static void usingBubbleSort(List<Integer> list) {
 
     list.forEach(
@@ -25,6 +22,8 @@ public class SortIntegers {
   }
 
   public static void usingCombSort(List<Integer> list) {
+    final double combSortGapRate = 1.3;
+    final int combSortMinimumAllowedGap = 1;
 
     int gap = list.size() - 1;
     boolean thereWasSwap;
@@ -41,9 +40,9 @@ public class SortIntegers {
         }
       }
 
-      gap = (int) Math.max((gap / COMB_SORT_GAP_RATE), COMB_SORT_MINIMUM_ALLOWED_GAP);
+      gap = (int) Math.max((gap / combSortGapRate), combSortMinimumAllowedGap);
 
-    } while ((gap != COMB_SORT_MINIMUM_ALLOWED_GAP) || (thereWasSwap));
+    } while ((gap != combSortMinimumAllowedGap) || (thereWasSwap));
   }
 
   public static void usingExchangeSort(List<Integer> list) {
@@ -59,7 +58,17 @@ public class SortIntegers {
   }
 
   public static void usingInsertionSort(List<Integer> list) {
-    // TODO: Implement me
+
+    for (int i = 1; i < list.size(); i++) {
+      int swapper = list.get(i);
+      int insertionIndex = i - 1;
+
+      while ((insertionIndex >= 0) && swapper < list.get(insertionIndex)) {
+        list.set((insertionIndex + 1), list.get(insertionIndex));
+        insertionIndex--;
+      }
+      list.set((insertionIndex + 1), swapper);
+    }
   }
 
   public static void usingSelectionSort(List<Integer> list) {
@@ -67,6 +76,10 @@ public class SortIntegers {
   }
 
   public static void usingMergeSort(List<Integer> list) {
+    // TODO: Implement me
+  }
+
+  public static void usingQuickSort(List<Integer> list) {
     // TODO: Implement me
   }
 

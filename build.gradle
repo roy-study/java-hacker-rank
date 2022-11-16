@@ -38,7 +38,6 @@ test {
     }
 
     finalizedBy jacocoTestReport
-    finalizedBy jacocoTestCoverageVerification
 }
 
 jacocoTestCoverageVerification {
@@ -70,8 +69,8 @@ tasks.named('sonarqube').configure {
 
 sonarqube {
     properties {
-        // Assuming sonar ins running on localhost:9000
-        // and you have a token configured and its value is in a environment variable
+        // Assuming sonar is running on localhost:9000
+        // Assuming there is a token configured and its value is on an environment variable
         property 'sonar.login', "${System.env.SONARQUBE_TOKEN}"
     }
 }
