@@ -67,12 +67,24 @@ public class SortIntegers {
         list.set((insertionIndex + 1), list.get(insertionIndex));
         insertionIndex--;
       }
+
       list.set((insertionIndex + 1), swapper);
     }
   }
 
   public static void usingSelectionSort(List<Integer> list) {
-    // TODO: Implement me
+
+    for (int i = 0; i < list.size(); i++) {
+      int indexOfSmallerOfIteration = i;
+
+      for (int j = (i + 1); j < list.size(); j++) {
+        if (list.get(j) < list.get(indexOfSmallerOfIteration)) {
+          indexOfSmallerOfIteration = j;
+        }
+      }
+
+      swapIntegers(list, indexOfSmallerOfIteration, i);
+    }
   }
 
   public static void usingMergeSort(List<Integer> list) {
@@ -101,10 +113,9 @@ public class SortIntegers {
 
   private static void swapIntegers(List<Integer> list, int indexOfSmall, int indexOfBig) {
 
-    Integer smaller = list.get(indexOfSmall);
-    Integer bigger = list.get(indexOfBig);
+    Integer swapHelper = list.get(indexOfSmall);
 
-    list.set(indexOfSmall, bigger);
-    list.set(indexOfBig, smaller);
+    list.set(indexOfSmall, list.get(indexOfBig));
+    list.set(indexOfBig, swapHelper);
   }
 }

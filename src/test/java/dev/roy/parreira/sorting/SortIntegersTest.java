@@ -71,6 +71,18 @@ class SortIntegersTest {
     assertTrue(Ordering.natural().isOrdered(integerList));
   }
 
+  @Test
+  @DisplayName("Should successfully sort a list using SELECTION SORT algorithm")
+  void shouldSortUsingSelectionSort() {
+
+    // Act
+    SortIntegers.usingSelectionSort(integerList);
+    System.out.println(integerList);
+
+    // Assert
+    assertTrue(Ordering.natural().isOrdered(integerList));
+  }
+
   private List<Integer> getRandomIntegerList() {
 
     Random random = new Random();
